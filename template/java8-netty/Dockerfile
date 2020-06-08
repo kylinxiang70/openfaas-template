@@ -24,11 +24,11 @@ RUN chmod +x /usr/bin/fwatchdog
 
 WORKDIR /home/app
 
-COPY --from=builder /home/app/entrypoint/target/java-tmp-0.0.1-SNAPSHOT.jar ./java-tmp-0.0.1-SNAPSHOT.jar
+COPY --from=builder /home/app/entrypoint/target/entrypoint-1.0-SNAPSHOT.jar ./entrypoint-1.0-SNAPSHOT.jar
 
 ENV upstream_url="http://127.0.0.1:8080"
 ENV mode="http"
-ENV fprocess="java -jar -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap java-tmp-0.0.1-SNAPSHOT.jar"
+ENV fprocess="java -jar -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap entrypoint-1.0-SNAPSHOT.jar"
 
 EXPOSE 8080
 
