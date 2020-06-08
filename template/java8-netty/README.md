@@ -13,7 +13,7 @@ There are three module of this project:
 - entrypoint - (App) Netty based HTTP server for re-using the JVM between requests, (SSL support)
 
 ## Handler
-The handler is written in the `./src/main/Handler.java` folder
+The handler is written in the `./function/src/main/org/kylin/openfaas/Handler.java` folder
 
 Tests in `./src/test`
 
