@@ -26,7 +26,7 @@ WORKDIR /home/app
 
 COPY --from=builder /home/app/entrypoint/target/entrypoint-1.0-SNAPSHOT.jar ./entrypoint-1.0-SNAPSHOT.jar
 
-ENV upstream_url="http://127.0.0.1:8080"
+ENV upstream_url="http://127.0.0.1:8082"
 ENV mode="http"
 ENV fprocess="java -jar -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap entrypoint-1.0-SNAPSHOT.jar"
 
