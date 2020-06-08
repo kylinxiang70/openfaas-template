@@ -34,7 +34,7 @@ faas-cli up -f <func-name>.yml
 SSL support:
 ```dockerfile
 # update Dockerfile
-# no ssl
+# no ssl, default
 ENV fprocess="java -jar -XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap entrypoint-1.0-SNAPSHOT.jar"
 
 # ssl support
