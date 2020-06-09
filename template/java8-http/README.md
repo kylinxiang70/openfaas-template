@@ -21,7 +21,7 @@ Tests in `./src/test`
 ```bash
 1. faas-cli template pull git@github.com:kylin1994/openfaas-template.git
 
-2. faas-cli new --lang java8-netty <func-name>
+2. faas-cli new --lang java8-http <func-name>
 
 3. faas-cli build -f <func-name>.yml
 
