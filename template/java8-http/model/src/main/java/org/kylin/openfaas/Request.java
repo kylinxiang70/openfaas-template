@@ -8,14 +8,14 @@ import java.util.Map;
 
 
 public class Request implements IRequest {
-    private IHeader headers;
+    private Header headers;
     private String body;
     private Map<String, List<String>> queryParameters;
     private URI uri;
     private String queryRaw;
     private String pathRaw;
 
-    public Request(String body, IHeader headers, String uri) {
+    public Request(String body, Header headers, String uri) {
         this.body = body;
         this.headers = headers;
         this.uri = URI.create(uri);
@@ -31,7 +31,7 @@ public class Request implements IRequest {
     }
 
     @Override
-    public IHeader getHeaders() {
+    public Header getHeaders() {
         return this.headers;
     }
 
@@ -42,7 +42,6 @@ public class Request implements IRequest {
 
     @Override
     public Map<String, List<String>> getQuery() {
-
         return this.queryParameters;
     }
 
@@ -54,20 +53,21 @@ public class Request implements IRequest {
     private Map<String, List<String>> parseQueryParameters() {
         Map<String, List<String>> queryParamsMap = new HashMap<>();
         if (queryRaw != null) {
-            String pairs[] = queryRaw.split("[&]");
+            String[] pairs = queryRaw.split("[&]");
 
             for (String pair : pairs) {
-                String param[] = pair.split("[=]");
+                if (pair.charAt(0) == '=') continue; // key is empty
+                String[] param = pair.split("[=]");
+
                 String key = param[0];
-                String value = param[1];
-                if (null != key && key.length() > 0) {
-                    if (queryParamsMap.containsKey(key)) {
-                        queryParamsMap.get(key).add(value);
-                    } else {
-                        List<String> values = new ArrayList<>();
-                        values.add(value);
-                        queryParamsMap.put(key, values);
-                    }
+                String value = param.length == 2 ? param[1] : ""; // allow value is empty
+
+                if (queryParamsMap.containsKey(key)) {
+                    queryParamsMap.get(key).add(value);
+                } else {
+                    List<String> values = new ArrayList<>();
+                    values.add(value);
+                    queryParamsMap.put(key, values);
                 }
             }
         }

@@ -9,4 +9,6 @@ public interface IHeader {
     List<String> getHeader(String key);
 
     Map<String, List<String>> entries();
+
+    int size();
 }

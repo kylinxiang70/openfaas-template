@@ -3,12 +3,12 @@ package org.kylin.openfaas;
 public class Response implements IResponse {
     private int statusCode = 200;
     private String body;
-    private IHeader headers;
+    private Header headers;
 
     public Response() {
     }
 
-    public Response(int statusCode, String body, IHeader headers) {
+    public Response(int statusCode, String body, Header headers) {
         this.statusCode = statusCode;
         this.body = body;
         this.headers = headers;
@@ -25,12 +25,12 @@ public class Response implements IResponse {
     }
 
     @Override
-    public void setHeaders(IHeader headers) {
+    public void setHeaders(Header headers) {
         this.headers = headers;
     }
 
     @Override
-    public IHeader getHeaders() {
+    public Header getHeaders() {
         return this.headers;
     }
 

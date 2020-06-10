@@ -5,9 +5,9 @@ public interface IResponse {
 
     void setBody(String body);
 
-    IHeader getHeaders();
+    Header getHeaders();
 
-    void setHeaders(IHeader header);
+    void setHeaders(Header header);
 
     int getStatusCode();
 
