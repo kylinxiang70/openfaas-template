@@ -69,9 +69,9 @@ public class ServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> 
         ctx.close();
     }
 
-    private IHeader convertHeader(HttpHeaders headers) {
-        IHeader iHeader = new Header();
-        headers.entries().forEach(e -> iHeader.setHeader(e.getKey(), e.getValue()));
-        return iHeader;
+    private Header convertHeader(HttpHeaders headers) {
+        Header Header = new Header();
+        headers.entries().forEach(e -> Header.setHeader(e.getKey(), e.getValue()));
+        return Header;
     }
 }
