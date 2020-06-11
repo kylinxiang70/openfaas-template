@@ -13,7 +13,7 @@ WORKDIR /home/app
 
 COPY . /home/app
 
-RUN mvn clean package
+RUN mvn clean package -Dmaven.test.skip=true
 
 FROM openfaas/of-watchdog:0.7.6 as watchdog
 
