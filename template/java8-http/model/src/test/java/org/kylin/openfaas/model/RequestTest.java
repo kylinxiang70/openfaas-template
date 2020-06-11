@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 import org.junit.jupiter.api.Test;
 
@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.kylin.openfaas.TestUtil.getMethodByName;
+import static org.kylin.openfaas.model.TestUtil.getMethodByName;
 
 public class RequestTest {
     @Test

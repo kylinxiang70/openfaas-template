@@ -1,4 +1,6 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.function;
+
+import org.kylin.openfaas.model.*;
 
 public class Handler implements IHandler {
     @Override

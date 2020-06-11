@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.entrypoint;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.Channel;

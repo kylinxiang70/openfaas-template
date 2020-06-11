@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.entrypoint;
 
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
@@ -7,6 +7,8 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.handler.codec.http.*;
 import io.netty.util.CharsetUtil;
+import org.kylin.openfaas.function.Handler;
+import org.kylin.openfaas.model.*;
 
 import java.util.List;
 import java.util.Map;

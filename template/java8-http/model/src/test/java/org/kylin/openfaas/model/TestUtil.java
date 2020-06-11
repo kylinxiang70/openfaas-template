@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

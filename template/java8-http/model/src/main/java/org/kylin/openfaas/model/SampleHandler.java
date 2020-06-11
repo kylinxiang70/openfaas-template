@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 public class SampleHandler implements IHandler {
 

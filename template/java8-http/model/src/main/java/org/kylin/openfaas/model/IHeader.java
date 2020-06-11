@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 import java.util.List;
 import java.util.Map;

@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 public class Response implements IResponse {
     private int statusCode = 200;

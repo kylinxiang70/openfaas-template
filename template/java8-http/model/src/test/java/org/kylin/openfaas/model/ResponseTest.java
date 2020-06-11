@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 import org.junit.jupiter.api.Test;
 
@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.kylin.openfaas.TestUtil.getRtField;
+import static org.kylin.openfaas.model.TestUtil.getRtField;
 
 public class ResponseTest {
     @Test

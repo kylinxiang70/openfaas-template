@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.kylin.openfaas.TestUtil.*;
+import static org.kylin.openfaas.model.TestUtil.*;
 
 public class HeaderTest {
 
@@ -30,14 +30,14 @@ public class HeaderTest {
     @SuppressWarnings("unchecked")
     void testSetHeaderInvalidKey() throws NoSuchFieldException, IllegalAccessException {
         Header header = new Header();
-        Map<String, List<String>> map = (Map<String, List<String>>) getRtField("map", header);
+        Map<String, List<String>> map = (Map<String, List<String>>) TestUtil.getRtField("map", header);
 
         // null key
-        header.setHeader(null, genRandomFixedLenStr(5));
+        header.setHeader(null, TestUtil.genRandomFixedLenStr(5));
         assertEquals(0, map.size());
 
         // empty key
-        header.setHeader("", genRandomFixedLenStr(5));
+        header.setHeader("", TestUtil.genRandomFixedLenStr(5));
         assertEquals(0, map.size());
     }
 
@@ -45,10 +45,10 @@ public class HeaderTest {
     @SuppressWarnings("unchecked")
     void testSetHeaderSingleValue() throws NoSuchFieldException, IllegalAccessException {
         Header header = new Header();
-        Map<String, List<String>> map = (Map<String, List<String>>) getRtField("map", header);
+        Map<String, List<String>> map = (Map<String, List<String>>) TestUtil.getRtField("map", header);
 
-        String key = genRandomFixedLenStr(5);
-        String value = genRandomFixedLenStr(5);
+        String key = TestUtil.genRandomFixedLenStr(5);
+        String value = TestUtil.genRandomFixedLenStr(5);
         assertNotNull(key);
         header.setHeader(key, value);
         assertEquals(value, map.get(key).get(0));
@@ -58,13 +58,13 @@ public class HeaderTest {
     @SuppressWarnings("unchecked")
     void testSetHeaderMultipleValue() throws NoSuchFieldException, IllegalAccessException {
         Header header = new Header();
-        Map<String, List<String>> map = (Map<String, List<String>>) getRtField("map", header);
+        Map<String, List<String>> map = (Map<String, List<String>>) TestUtil.getRtField("map", header);
 
-        String key = genRandomFixedLenStr(5);
-        String value = genRandomFixedLenStr(5);
+        String key = TestUtil.genRandomFixedLenStr(5);
+        String value = TestUtil.genRandomFixedLenStr(5);
         assertNotNull(key);
         header.setHeader(key, value);
-        String value2 = genRandomFixedLenStr(5);
+        String value2 = TestUtil.genRandomFixedLenStr(5);
         assertNotNull(key);
         header.setHeader(key, value2);
 
@@ -76,7 +76,7 @@ public class HeaderTest {
     void testGetHeaderNullKey() {
         Header header = new Header();
         // set some init key/value pairs
-        header.setHeader(genRandomFixedLenStr(5), genRandomFixedLenStr(5));
+        header.setHeader(TestUtil.genRandomFixedLenStr(5), TestUtil.genRandomFixedLenStr(5));
 
         Exception e = assertThrows(IllegalArgumentException.class, () -> header.getHeader(null));
         assertEquals(e.getMessage(), "key can not be null or empty.");
@@ -86,7 +86,7 @@ public class HeaderTest {
     void testGetHeaderEmptyKey() {
         Header header = new Header();
         // set some init key/value pairs
-        header.setHeader(genRandomFixedLenStr(5), genRandomFixedLenStr(5));
+        header.setHeader(TestUtil.genRandomFixedLenStr(5), TestUtil.genRandomFixedLenStr(5));
 
         Exception e = assertThrows(IllegalArgumentException.class, () -> header.getHeader(""));
         assertEquals(e.getMessage(), "key can not be null or empty.");
@@ -113,7 +113,7 @@ public class HeaderTest {
         Header header = new Header();
         Method isNullOrEmptyString = getMethodByName(header, "isNullOrEmptyString", String.class);
 
-        boolean result = (boolean) isNullOrEmptyString.invoke(header, genRandomFixedLenStr(5));
+        boolean result = (boolean) isNullOrEmptyString.invoke(header, TestUtil.genRandomFixedLenStr(5));
         assertFalse(result);
 
         result = (boolean) isNullOrEmptyString.invoke(header, "");
@@ -128,7 +128,7 @@ public class HeaderTest {
     @SuppressWarnings("unchecked")
     void TestEntries() throws NoSuchFieldException, IllegalAccessException {
         Header header = new Header();
-        Map<String, List<String>> map = (Map<String, List<String>>) getRtField("map", header);
+        Map<String, List<String>> map = (Map<String, List<String>>) TestUtil.getRtField("map", header);
         Map<String, List<String>> entries = header.entries();
 
         assertEquals(map, entries);

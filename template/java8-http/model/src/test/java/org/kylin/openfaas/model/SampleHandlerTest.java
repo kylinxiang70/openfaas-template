@@ -1,6 +1,10 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 import org.junit.jupiter.api.Test;
+import org.kylin.openfaas.model.Header;
+import org.kylin.openfaas.model.IResponse;
+import org.kylin.openfaas.model.Request;
+import org.kylin.openfaas.model.SampleHandler;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

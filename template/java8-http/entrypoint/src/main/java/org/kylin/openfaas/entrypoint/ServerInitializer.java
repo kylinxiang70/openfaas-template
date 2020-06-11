@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.entrypoint;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;

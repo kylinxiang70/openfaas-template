@@ -1,4 +1,4 @@
-package org.kylin.openfaas;
+package org.kylin.openfaas.model;
 
 import java.util.ArrayList;
 import java.util.HashMap;

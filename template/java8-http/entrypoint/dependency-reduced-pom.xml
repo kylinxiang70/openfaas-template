@@ -21,7 +21,7 @@
             <configuration>
               <transformers>
                 <transformer>
-                  <mainClass>org.kylin.openfaas.HttpServer</mainClass>
+                  <mainClass>org.kylin.openfaas.entrypoint.HttpServer</mainClass>
                 </transformer>
               </transformers>
             </configuration>
